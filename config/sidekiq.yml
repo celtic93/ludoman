@@ -1,0 +1,4 @@
+:schedule:
+  parser_job:
+    cron: '*/12 * * * *'
+    class: ParserJob
