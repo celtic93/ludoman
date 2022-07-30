@@ -1,0 +1,13 @@
+table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+tr:nth-child(even){
+  background: #dae5f4;
+}
+
+tr:hover {
+  background-color: #b9f0b6;
+}

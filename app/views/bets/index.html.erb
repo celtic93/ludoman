@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Event</th>
+    <th>Tournament</th>
+    <th>Market</th>
+    <th>Market Details</th>
+    <th>Coefficient</th>
+    <th>Overvalue</th>
+  </tr>
+  <% @bets.each do |bet| %>
+    <tr>
+      <td><%= bet.started_at.strftime("%d-%m-%Y %H:%M") %></td>
+      <td><%= bet.event_name %></td>
+      <td><%= bet.tournament %></td>
+      <td><%= bet.market %></td>
+      <td><%= bet.market_details %></td>
+      <td><%= bet.coefficient %></td>
+      <td><%= bet.overvalue %></td>
+    </tr>
+  <% end %>
+</table>
