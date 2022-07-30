@@ -25,6 +25,7 @@ end
 
 group :development do
   gem "addressable"
+  gem "dotenv-rails"
   gem "pry"
 end
 
