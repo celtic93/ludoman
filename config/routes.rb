@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :bets, only: %i[index]
+  resources :bets, only: %i[index update]
 
   root 'bets#index'
 

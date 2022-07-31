@@ -4,4 +4,6 @@ class Bet < ApplicationRecord
 
   scope :ended, -> { where('started_at < ?', 3.hours.ago) }
   scope :order_by_tournament_and_started_at, -> { order(:tournament, :started_at) }
+
+  enumerize :result, in: %i[pending won lost draw], predicates: true, scope: true
 end

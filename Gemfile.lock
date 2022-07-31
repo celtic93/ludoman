@@ -81,6 +81,8 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    enumerize (2.5.0)
+      activesupport (>= 3.2)
     erubi (1.10.0)
     et-orbi (1.2.7)
       tzinfo
@@ -201,6 +203,7 @@ DEPENDENCIES
   addressable
   debug
   dotenv-rails
+  enumerize
   pg (~> 1.1)
   pry
   puma (~> 5.0)
