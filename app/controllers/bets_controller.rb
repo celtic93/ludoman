@@ -7,7 +7,7 @@ class BetsController < ApplicationController
     bet = Bet.find(params[:id])
     bet.update(bet_params)
 
-    redirect_to action: :index
+    redirect_to root_path
   end
 
   private

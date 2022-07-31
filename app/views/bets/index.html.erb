@@ -1,27 +1,32 @@
 <h3>Bets count: <%= @bets.count %></h3>
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Event</th>
-    <th>Tournament</th>
-    <th>Market</th>
-    <th>Market Details</th>
-    <th>Coefficient</th>
-    <th>Overvalue</th>
-    <th colspan="3">Results</th>
-  </tr>
-  <% @bets.each do |bet| %>
+
+<% if @bets.any? %>
+  <table>
     <tr>
-      <td><%= bet.started_at.strftime("%d-%m-%Y %H:%M") %></td>
-      <td><%= bet.event_name %></td>
-      <td><%= bet.tournament %></td>
-      <td><%= bet.market %></td>
-      <td><%= bet.market_details %></td>
-      <td><%= bet.coefficient %></td>
-      <td><%= bet.overvalue %></td>
-      <td><%= button_to 'Won', bet_path(id: bet.id, bet: { result: :won }), method: :put %></td>
-      <td><%= button_to 'Draw', bet_path(id: bet.id, bet: { result: :draw }), method: :put %></td>
-      <td><%= button_to 'Lost', bet_path(id: bet.id, bet: { result: :lost }), method: :put %></td>
+      <th>Date</th>
+      <th>Event</th>
+      <th>Tournament</th>
+      <th>Market</th>
+      <th>Market Details</th>
+      <th>Coefficient</th>
+      <th>Overvalue</th>
+      <th colspan="3">Results</th>
     </tr>
-  <% end %>
-</table>
+    <% @bets.each do |bet| %>
+      <tr>
+        <td><%= bet.started_at.strftime("%d-%m-%Y %H:%M") %></td>
+        <td><%= bet.event_name %></td>
+        <td><%= bet.tournament %></td>
+        <td><%= bet.market %></td>
+        <td><%= bet.market_details %></td>
+        <td><%= bet.coefficient %></td>
+        <td><%= bet.overvalue %></td>
+        <td><%= button_to 'Won', bet_path(id: bet.id, bet: { result: :won }), method: :put %></td>
+        <td><%= button_to 'Draw', bet_path(id: bet.id, bet: { result: :draw }), method: :put %></td>
+        <td><%= button_to 'Lost', bet_path(id: bet.id, bet: { result: :lost }), method: :put %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>Nothing to see</p>
+<% end %>

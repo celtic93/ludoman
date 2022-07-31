@@ -1,3 +1,11 @@
 p {
   font-size: 18px;
 }
+
+.horizontal ul {
+  padding-inline-start: 0px;
+}
+
+.horizontal li {
+  display: inline;
+}
