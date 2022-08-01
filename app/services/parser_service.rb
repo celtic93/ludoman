@@ -1,10 +1,8 @@
 require 'open-uri'
 
 class ParserService
-  URL = ENV['PARSER_URL']
-
   def parse_bets
-    uri = Addressable::URI.parse(URL)
+    uri = Addressable::URI.parse(ENV['PARSER_URL'])
     page = Nokogiri::HTML(URI.open(uri.normalize))
     bets = page.css('.app-table tbody')
 
