@@ -3,6 +3,7 @@
 <% if @bets.any? %>
   <table>
     <tr>
+      <th>X</th>
       <th>Date</th>
       <th>Event</th>
       <th>Tournament</th>
@@ -14,6 +15,7 @@
     </tr>
     <% @bets.each do |bet| %>
       <tr>
+        <td><%= button_to 'X', bet_path(bet), method: :delete %></td>
         <td><%= bet.started_at.strftime("%d-%m-%Y %H:%M") %></td>
         <td><%= bet.event_name %></td>
         <td><%= bet.tournament %></td>
