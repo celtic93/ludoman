@@ -1,5 +1,14 @@
-p {
-  font-size: 18px;
+body {
+  background-color: #15012e;
+  color: #c5c5c7;
+  font-size: 20px;
+}
+
+a {
+  color: #c5c5c7;
+  border: 1px solid;
+  text-decoration: none;
+  padding: 5px;
 }
 
 .horizontal ul {
