@@ -1,9 +1,12 @@
-<h3>Bets count: <%= @bets.count %></h3>
+<div class="line">
+  <h3>Bets count: <%= @bets.count %></h3>
+  <h3>All pending bets count: <%= Bet.with_result(:pending).count %></h3>
+</div>
 
 <% if @bets.any? %>
   <table>
     <tr>
-      <th>X</th>
+      <th colspan="2">Delay</th>
       <th>Date</th>
       <th>Event</th>
       <th>Tournament</th>
@@ -15,6 +18,7 @@
     </tr>
     <% @bets.each do |bet| %>
       <tr>
+        <td><%= button_to 'Later', bet_path(id: bet.id, bet: { started_at: bet.started_at + 12.hours }), method: :put %></td>
         <td><%= button_to 'X', bet_path(bet), method: :delete %></td>
         <td><%= bet.started_at.strftime("%d-%m-%Y %H:%M") %></td>
         <td><%= bet.event_name %></td>

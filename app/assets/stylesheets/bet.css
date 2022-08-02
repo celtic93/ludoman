@@ -10,3 +10,8 @@ tr:nth-child(even){
 tr:hover {
   background-color: #2c1745;
 }
+
+.line h3 {
+  display: inline-block;
+  margin-right: 25px;
+}
