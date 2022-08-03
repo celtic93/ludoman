@@ -12,6 +12,7 @@ class ParserService
 
       event_name = bet.css('.event a').text
       tournament = bet.css('.event .minor').text
+      sport = bet.css('.booker .minor').text
       market = bet.css('.coeff abbr').text
       market_details = bet.css('.coeff abbr').attr('title').value
       coefficient = bet.css('.value').text.to_f
@@ -21,6 +22,7 @@ class ParserService
         started_at: started_at,
         event_name: event_name,
         tournament: tournament,
+        sport: sport,
         market: market,
         market_details: market_details,
         coefficient: coefficient,

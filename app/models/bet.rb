@@ -1,9 +1,12 @@
 class Bet < ApplicationRecord
-  validates :event_name, :tournament, :market, :market_details, :coefficient, :overvalue, :started_at, presence: true
+  ENOUGH_TIME_FOR_SPORT_EVENT = 3.hours.ago
+
+  validates :event_name, :tournament, :sport, :market, :market_details,
+            :coefficient, :overvalue, :started_at, presence: true
   validates :event_name, uniqueness: { scope: :market }
 
-  scope :ended, -> { where('started_at < ?', 3.hours.ago) }
-  scope :order_by_event_info, -> { order(:tournament, :event_name, :started_at) }
+  scope :ended, -> { where('started_at < ?', ENOUGH_TIME_FOR_SPORT_EVENT) }
+  scope :order_by_event_info, -> { order(:sport, :tournament, :event_name, :started_at) }
 
   enumerize :result, in: %i[pending won lost draw], predicates: true, scope: true
 end
