@@ -3,6 +3,13 @@ table, th, td {
   border-collapse: collapse;
 }
 
+table a {
+  color: #c5c5c7;
+  border: none;
+  text-decoration: none;
+  padding: 0px;
+}
+
 tr:nth-child(even){
   background: #21014a;
 }

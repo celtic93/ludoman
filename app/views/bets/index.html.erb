@@ -21,7 +21,7 @@
         <td><%= button_to 'Later', bet_path(id: bet.id, bet: { started_at: bet.started_at + 12.hours }), method: :put %></td>
         <td><%= button_to 'X', bet_path(bet), method: :delete %></td>
         <td><%= bet.started_at.strftime("%d-%m-%Y %H:%M") %></td>
-        <td><%= bet.event_name %></td>
+        <td><%= google_search_link(bet.event_name) %></td>
         <td><%= bet.tournament %></td>
         <td><%= bet.sport %></td>
         <td><%= bet.market %></td>
