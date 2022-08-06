@@ -2,7 +2,7 @@ class BetsController < ApplicationController
   before_action :find_bet, only: %i[update destroy]
 
   def index
-    @bets = Bet.ended.with_result(:pending).order_by_event_info
+    @bets = Bet.ended.overvalued(7).with_result(:pending).order_by_event_info
   end
 
   def update

@@ -1,12 +1,13 @@
 class StatisticsService
   def count_stats
     result = Result.new
-    won_bets = Bet.with_result(:won)
-    bets_with_results_count = Bet.without_result(:pending).count
+    bets = Bet.overvalued(7)
+    won_bets = bets.with_result(:won)
+    bets_with_results_count = bets.without_result(:pending).count
 
     result.won_count = won_bets.count
-    result.draw_count = Bet.with_result(:draw).count
-    result.lost_count = Bet.with_result(:lost).count
+    result.draw_count = bets.with_result(:draw).count
+    result.lost_count = bets.with_result(:lost).count
     result.total_count = bets_with_results_count
     result.profit = won_bets.sum(:coefficient) + result.draw_count - bets_with_results_count
     result.roi = result.profit / bets_with_results_count
