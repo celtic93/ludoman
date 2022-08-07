@@ -1,6 +1,5 @@
 <div class="line">
   <h3>Bets count: <%= @bets.count %></h3>
-  <h3>All pending bets count: <%= Bet.overvalued(7).with_result(:pending).count %></h3>
 </div>
 
 <% if @bets.any? %>
