@@ -1,8 +1,8 @@
 require 'open-uri'
 
 class ParserService
-  def parse_bets
-    uri = Addressable::URI.parse(ENV['PARSER_URL'])
+  def parse_bets(bookmaker)
+    uri = Addressable::URI.parse(ENV["#{bookmaker.capitalize}_PARSER_URL"])
     page = Nokogiri::HTML(URI.open(uri.normalize))
     bets = page.css('.app-table tbody')
 
@@ -18,7 +18,7 @@ class ParserService
       coefficient = bet.css('.value').text.to_f
       overvalue = bet.css('.text-center').last.text.to_f
 
-      Bet.create(
+      created_bet = Bet.create(
         started_at: started_at,
         event_name: event_name,
         tournament: tournament,
@@ -26,8 +26,10 @@ class ParserService
         market: market,
         market_details: market_details,
         coefficient: coefficient,
-        overvalue: overvalue
+        overvalue: overvalue,
+        bookmaker: bookmaker
       )
+      TelegramNotifierJob.perform_async(created_bet.id) if created_bet.id && created_bet.bookmaker_m?
     end
   end
 end

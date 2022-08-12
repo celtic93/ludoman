@@ -20,6 +20,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'addressable'
 gem 'enumerize'
+gem 'httparty'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_03_203236) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_12_151125) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,7 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_03_203236) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "result", default: "pending", comment: "The result of event"
-    t.string "sport"
+    t.string "sport", comment: "Sport of event"
+    t.string "bookmaker", comment: "Bet's bookmaker"
   end
 
 end

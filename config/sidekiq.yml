@@ -1,4 +1,9 @@
 :schedule:
-  parser_job:
+  p_parser_job:
     cron: '*/12 * * * *'
+    args: ['p']
+    class: ParserJob
+  m_parser_job:
+    cron: '*/5 * * * *'
+    args: ['m']
     class: ParserJob

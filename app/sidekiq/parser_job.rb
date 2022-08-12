@@ -1,7 +1,7 @@
 class ParserJob
   include Sidekiq::Job
 
-  def perform
-    ParserService.new.parse_bets
+  def perform(bookmaker)
+    ParserService.new.parse_bets(bookmaker)
   end
 end
