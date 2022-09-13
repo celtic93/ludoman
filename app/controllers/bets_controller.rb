@@ -2,7 +2,11 @@ class BetsController < ApplicationController
   before_action :find_bet, only: %i[update destroy]
 
   def index
-    @bets = Bet.overvalued.with_bookmaker(:p).with_result(:pending).order(:started_at, :event_name)
+    @bets = Bet.overvalued
+      .where.not(sport: ['Football', 'You guess'])
+      .with_bookmaker(:p)
+      .with_result(:pending)
+      .order(:started_at, :event_name)
   end
 
   def update

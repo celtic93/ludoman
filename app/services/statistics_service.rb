@@ -1,7 +1,7 @@
 class StatisticsService
   def count_stats
     result = Result.new
-    bets = Bet.overvalued
+    bets = Bet.overvalued.where.not(sport: ['Football', 'You guess'])
     won_bets = bets.with_result(:won)
     bets_with_results_count = bets.without_result(:pending).count
 
