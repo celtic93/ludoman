@@ -7,3 +7,6 @@
     cron: '*/1 * * * *'
     args: ['m']
     class: ParserJob
+  kondratio_parser_job:
+    cron: '*/10 * * * *'
+    class: KondratioParserJob
