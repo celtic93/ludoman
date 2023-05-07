@@ -1,5 +1,5 @@
 class TelegramNotifierService
-  def send_bet(bet_id)
+  def send_bet(bet_id, chat_id)
     bet = Bet.find(bet_id)
 
     HTTParty.post("https://api.telegram.org/bot#{ENV['TELEGRAM_BOT_API_KEY']}/sendMessage",
@@ -7,7 +7,7 @@ class TelegramNotifierService
                     'Content-Type' => 'application/json'
                   },
                   body: {
-                    chat_id: ENV['TELEGRAM_BOT_CHAT_ID'],
+                    chat_id: chat_id,
                     text: bet_text(bet)
                   }.to_json)
   end

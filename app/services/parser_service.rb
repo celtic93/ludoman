@@ -29,7 +29,7 @@ class ParserService
         overvalue: overvalue,
         bookmaker: bookmaker
       )
-      TelegramNotifierJob.perform_async(created_bet.id) if created_bet.id && created_bet.bookmaker_m?
+      TelegramNotifierJob.perform_async(created_bet.id, false) if created_bet.id && created_bet.bookmaker_m?
     end
   end
 end
